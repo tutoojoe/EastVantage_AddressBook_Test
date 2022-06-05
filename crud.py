@@ -66,6 +66,7 @@ def create_user_address(db: Session, address: schemas.AddressBookCreate, user_id
     location = get_location(address.city)
     if location:
         print(location, "location found")
+        address.address = str(location)
         address.latitude = str(location.latitude)
         address.longitude = str(location.longitude)
         db_address = models.AddressBook(**address.dict(), owner_id=user_id)

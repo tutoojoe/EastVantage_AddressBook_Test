@@ -1,27 +1,14 @@
 from pydantic import BaseModel
 
 
-# class LocationBase(BaseModel):
-#     latitude: str | None = None
-#     longitude: str | None = None
-
-
-# class LocationCreate(LocationBase):
-#     pass
-
-
-# class Location(LocationBase):
-#     id = int
-
-
 class AddressBookBase(BaseModel):
     name: str
-    address_line_1: str
-    address_line_2: str | None = None
-    city: str
-    country: str
+    door_no: str
+    street_name: str | None = None
+    address: str | None = None
     latitude: str | None = None
     longitude: str | None = None
+    city: str
 
 
 class AddressBookCreate(AddressBookBase):
@@ -30,7 +17,6 @@ class AddressBookCreate(AddressBookBase):
 
 class AddressBook(AddressBookBase):
     id: int
-    location_id = int
     owner_id = int
 
     class Config:
