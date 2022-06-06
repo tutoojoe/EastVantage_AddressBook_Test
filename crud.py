@@ -1,14 +1,9 @@
-from sqlalchemy import not_
-from sqlalchemy.orm import Session
-from sqlalchemy.sql import not_, select
 from fastapi import HTTPException
-
-
-import models
-import schemas
-
+from sqlalchemy.orm import Session
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
+import models
+import schemas
 
 
 def get_location(city_name):
